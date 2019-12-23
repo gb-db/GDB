@@ -55,10 +55,10 @@ namespace Users.Controllers
         //[Authorize]
         public IActionResult Index()
         {
-            //CreateAdminAccount1(_userManager, _roleManager, Configuration).Wait();
+            CreateAdminAccount1(_userManager, _roleManager, Configuration).Wait();
             try
             {
-              CreateAdminAccount1(_userManager, _roleManager, Configuration).Wait();
+              //CreateAdminAccount1(_userManager, _roleManager, Configuration).Wait();
             }
             catch (Exception ex)
             {
