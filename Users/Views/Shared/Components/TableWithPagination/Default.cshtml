@@ -1,0 +1,40 @@
+﻿@model NewsDataPaginationViewModels
+
+<div id="pagination-id">
+    <form id="post-pagination" asp-action="/News/GetMyViewComponent" method="post">
+        <input type="hidden" name="user_id" value="2" />
+        <table class="table table-sm table-bordered">
+            <tr>
+                <th>Name</th>
+                <th>User ID</th>
+                <th>Path</th>
+            </tr>
+            @if (Model.NewsDatasList != null && Model.NewsDatasList.Count > 0)
+            {
+                foreach (NewsDataViewModels item in Model.NewsDatasList)
+                {
+                    <tr>
+                        <td>@item.lName</td>
+                        <td>@item.User_Id</td>
+                        <td>@item.Path</td>
+                    </tr>
+                }
+            }
+        </table>
+        <div pagination-model="@Model.PagingInfo" page-action="List" page-classes-enabled="true"
+             page-class="btn btn-pagination" page-class-normal="btn-secondary"
+             page-class-selected="btn-primary"
+             class="btn-group pull-right m-1">
+        </div>
+
+
+
+        @*<button class="btn btn-dark post-pagination" type="submit"></button>*@
+        <input class="hidd-btn-pagination" name="Hidd" type="hidden" value="" />
+    </form>
+</div>
+
+
+
+
+

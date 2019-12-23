@@ -1,0 +1,6 @@
+﻿body-content-footer {
+    width:100%;
+    height:50px;
+    position:fixed;
+    z-index:1050;
+}

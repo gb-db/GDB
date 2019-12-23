@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "GenerateCode";
+}
+@{
+    IDictionary<string, string> routeData = new Dictionary<string, string>();
+    routeData.Add("Id", "12345");
+}
+<h2>GenerateCode</h2>
+<form asp-action="GenerateCode" asp-controller="Maintenance" asp-all-route-data="routeData" method="post">
+    <div>
+        <label>@ViewBag.message</label>
+    </div>
+    <button class="btn btn-info" type="submit">Generate</button>
+</form>
+

@@ -1,0 +1,89 @@
+﻿@model NewsDataViewModels
+@{
+    Layout = null;
+}
+<script src="~/Scripts/UploadImage.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<style>
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+
+    .ui-autocomplete-input {
+        /*z-index:1511;*/
+    }
+
+    .ui-autocomplete {
+        /*position: fixed;*/
+        z-index: 1651 !important;
+    }
+</style>
+<form id="post-upload-news" method="post" enctype="multipart/form-data" asp-controller="News" asp-action="UploadNews" class="pl-3 pr-3">
+    <p class="text-center" style="font-size:larger;font-weight:600;border-bottom:solid;border-width:thin;border-color:#ccc;">UPLOAD IMAGE</p>
+    <div class="container-fluid" style="border:solid;border-width:thin;border-color:#ccc;">
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="lName"></label>
+                    <input asp-for="lName" class="form-control uploadingUser" id="aaa" />
+                    <input asp-for="User_Id" type="hidden" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="description"></label>
+                    <input asp-for="description" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group">
+                    @*<label asp-for="country"></label>
+                    <select asp-for="country" asp-items="Html.GetEnumSelectList<Models.Enums.Country>()">
+                    </select>*@
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    @*<label asp-for="church"></label>
+                    <select asp-for="church" asp-items="Html.GetEnumSelectList<Models.Enums.Church>()">
+                    </select>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row  mt-2">
+        <div class="col-md-3 ml-3">
+            <label class="custom-file-upload">
+                <input type="file" name="files" class="upload-file-input" multiple />
+                <i class="fa fa-cloud-upload"></i> File Upload
+            </label>
+        </div>
+        <div class="col-md-8">
+            <label class="file-upload-filenames">
+            </label>
+        </div>
+    </div>
+    <div class="form-group mt-2">
+        <div class="col-md-10">
+            <input type="submit" value="Upload" />
+        </div>
+    </div>
+    <div class="form-group text-right" style="border-top:solid;border-width:thin;border-color:#ccc;">
+        <button type="button" class="btn btn-secondary mr-2 mt-1" data-dismiss="modal">Close</button>
+    </div>
+    <div class="form-group text-center" style="color:forestgreen;">
+        @*@{ Model.message = Model.message??""}*@
+        <span id="uploadLabel">@(Model?.message??"")</span>
+    </div>
+</form>

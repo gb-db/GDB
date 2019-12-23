@@ -1,0 +1,117 @@
+﻿@model NewsDataPagination_a_ViewModels
+@{
+    Layout = "_LayoutSequre";
+
+    //Models.ViewModels.SecurePageModel TagModel = (Models.ViewModels.SecurePageModel)Model;
+}
+@*@section script{
+        <script src="~/Scripts/pagination_A.js"></script>
+    }*@
+
+<style>
+    .active {
+        background-color: #20c997;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    .pagination {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        padding-left: 0;
+        list-style: none;
+        border-radius: .25rem;
+    }
+
+    .min_W_24 {
+        min-width: 24px;
+    }
+</style>
+
+<div style="width:1180px; height:500px; background-color:blueviolet; position:relative;float:left;">
+    <div class="row col-sm-12" id="requisition-div" name="requisition-div">
+        <table id="newsList_a" name="newsList_a" class='table  table-active table-hover' style="width: 100%;">
+            <thead>
+                <tr>
+                    @*class="success vertical-center"*@
+                    <th><a href="PaginationPage_a?currentPage=@(Model?.paging_A_Info?.currentPage)&sortByColumn=lname&sortByOrder=desc" id="href_imageLName" onclick="sortBy_A('lname');">Name<span id="imageLName" name="imageLName" class="fa fa-sort-alpha-asc ml-2"></span></a></th>
+                    <th><a href="PaginationPage_a?currentPage=@(Model?.paging_A_Info?.currentPage)&sortByColumn=description&sortByOrder=desc" id="href_imageDescription" onclick="sortBy_A('description');">Description<span id="imageDescription" name="imageDescription" class="fa fa-sort-alpha-asc ml-2"></span></a></th>
+                    <th><a href="PaginationPage_a?currentPage=@(Model?.paging_A_Info?.currentPage)" id="hrefimagePath" onclick="sortBy_A('path');">Path<span id="imagePath" name="imagePath" class=""></span></a></th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.NewsDatasList != null && Model.NewsDatasList.Count > 0)
+                {
+                    foreach (var item in Model.NewsDatasList)
+                    {
+                        <tr>
+                            <td>@(item.lName ?? "")</td>
+                            <td>@(item.description ?? "")</td>
+                            <td>@(item.Path ?? "")</td>
+                        </tr>
+                    }
+
+                }
+            </tbody>
+        </table>
+    </div>
+    @*<input asp-for="currentPage" type="hidden" value="2" />*@
+    <input asp-for="sortByOrder" id="sortByOrder" type="hidden" value="@Model?.sortByOrder" />
+    <input asp-for="sortByColumn" id="sortByColumn" type="hidden" value="@Model?.sortByColumn" />
+    <div class="row col-sm-12 text-right">
+        <ul class="pagination" id="pagination_a" name="pagination_a" style="margin: 0;">
+            @if (Model?.paging_A_Info != null && Model?.paging_A_Info?.totalPages > 1)
+            {
+                var liClass = "";
+                var totalPages = Model.paging_A_Info.totalPages;
+                var currentPage = Model.paging_A_Info.currentPage;
+                var startPage = Model.paging_A_Info.startPage;
+                var endPage = Model.paging_A_Info.endPage;
+
+                if (totalPages > 10)
+                {
+                    if (currentPage == 1)
+                    {
+                        liClass = "disabled";
+                    }
+                    <li class="@(liClass) text-center"><a href='PaginationPage_a?currentPage=1'><span class='fa fa-angle-double-left min_W_24'></span></a></li>
+                    <li class="@(liClass) text-center"><a href="PaginationPage_a?currentPage=@(currentPage - 1)"><span class='fa fa-angle-left min_W_24'></span></a></li>
+                }
+
+                for (var i = startPage; i <= endPage; i++)
+                {
+                    liClass = "";
+                    if (currentPage == i)
+                    {
+                        liClass = "active";
+                    }
+                    <li class="@(liClass)"><a href='PaginationPage_a?currentPage=@(i.ToString())' onclick='return setPage(@(i.ToString()))' style='padding-left: 8px; padding-right: 8px;'>@(i.ToString())</a></li>
+                }
+
+                if (totalPages > 10)
+                {
+                    liClass = "";
+                    if (currentPage == totalPages)
+                    {
+                        liClass = " disabled";
+                    }
+                    <li class="@(liClass) text-center"><a href='PaginationPage_a?currentPage=@(currentPage + 1)' onclick='return setPage(" + (currentPage + 1) + ")'><span class='fa fa-angle-right min_W_24'></span></a></li>
+                    <li class="@(liClass) text-center"><a href='PaginationPage_a?currentPage=@(totalPages)' onclick='return setPage(" + totalPages + ")'><span class='fa fa-angle-double-right min_W_24'></span></a></li>
+                }
+                <li><a style='width: 120px;'>Page @(currentPage) of @(totalPages)</a></li>
+            }
+
+        </ul>
+    </div>
+    @*<div class="row col-sm-12 text-right">
+            <ul class="pagination_a" id="pagination_a" name="pagination_a" style="margin: 0;"></ul>
+        </div>*@
+</div>
+
+@*@section script{
+    <script src="~/Scripts/pagination_A.js"></script>
+}*@

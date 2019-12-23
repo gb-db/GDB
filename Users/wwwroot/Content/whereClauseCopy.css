@@ -1,0 +1,134 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+:before, :after {
+    box-sizing: border-box;
+}
+
+.mainDiv {
+    width: 1180px;
+    height: 900px;
+}
+
+li {
+    height: 33px;
+}
+
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+
+dt {
+    display: block;
+}
+
+dd {
+    margin-left: 0px;
+    display: block;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 40px;
+}
+
+.query-builder .rules-list {
+    list-style: none;
+    padding: 0 0 0 0px;
+    margin: 0;
+}
+
+.query-builder .rules-group-container {
+    padding: 10px 10px 6px;
+    border: 1px solid #DCC896;
+    background: rgba(202, 213, 224, 0.50);
+}
+
+.query-builder .rules-group-container {
+    position: relative;
+    margin: 4px 0;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #EEE;
+}
+
+.query-builder .rule-container {
+    position: relative;
+    margin: 4px 0;
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid #EEE;
+}
+
+ul.rules-list dl > ::after {
+    content: '';
+    position: absolute;
+    left: -21px;
+    width: 23px;
+    height: calc(50% + 13px);
+    border-color: #a3a8fa;
+    border-style: solid;
+    border-width: 0 0 2px 2px;
+    top: -13px;
+}
+
+ul.rules-list dl > ::before {
+    content: '';
+    position: absolute;
+    left: -21px;
+    width: 23px;
+    height: calc(50% + 13px);
+    border-color: #a3a8fa;
+    border-style: solid;
+    border-width: 0 0 0px 2px;
+    top: calc(50%);
+}
+
+ul.rules-list dt:last-child::before, ul.rules-list dt:last-child::after {
+    display: none;
+}
+
+ul.rules-list > dl:last-child > ::before {
+    display: none;
+}
+
+.pull-right {
+    float: right;
+}
+
+.for-image {
+    background-image: url(../Images/M_N_40_55.Png);
+    height: 55px;
+    background-repeat: no-repeat;
+    background-origin: content-box;
+}
+
+.sizingBadge {
+    vertical-align: top;
+    font-size: 55%;
+    float: right;
+    margin-right: 2px;
+}
+
+.tooltip {
+    pointer-events: none;
+}
+
+.popover-body {
+    height: 150px;
+    overflow-y: auto;
+}
+
+.backgrpound_div {
+    background-color: rgb(110, 112, 114) !important;
+}

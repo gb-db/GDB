@@ -1,0 +1,199 @@
+﻿@model UploadPhotoViewModel
+@{
+    Layout = null;
+}
+@*<script src="~/Scripts/UploadImage.js"></script>*@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/whereClauseCopy.css" rel="stylesheet" />
+<style>
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+
+    .ui-autocomplete-input {
+        /*z-index:1511;*/
+    }
+
+    .ui-autocomplete {
+        /*position: fixed;*/
+        z-index: 1651 !important;
+    }
+
+    /*.abo:after {
+        content: "\f055";
+        font-family: FontAwesome;
+        left: 0;
+        position: absolute;
+        top: 0;
+    }*/
+    .com1 {
+        border-width: thin;
+        border-color: #ccc;
+        border-style: solid;
+        opacity: 1;
+    }
+
+    .com_15_33_759 {
+        position: absolute;
+        top: 50%;
+        left: 759px;
+        background-color: antiquewhite;
+        width: 15px;
+        height: 33px;
+    }
+
+    .com_50_33_709 {
+        position: absolute;
+        top: 50%;
+        left: 709px;
+        background-color: antiquewhite;
+        width: 50px;
+        height: 33px;
+        text-align: center;
+        display: none;
+    }
+
+    .com_15_33_750 {
+        position: absolute;
+        top: 50%;
+        left: 750px;
+        background-color: antiquewhite;
+        width: 15px;
+        height: 33px;
+    }
+
+    .com_50_33_700 {
+        position: absolute;
+        top: 50%;
+        left: 700px;
+        background-color: antiquewhite;
+        width: 50px;
+        height: 33px;
+        text-align: center;
+        display: none;
+    }
+
+    .com_70_33_709 {
+        position: absolute;
+        top: 50%;
+        left: 709px;
+        background-color: antiquewhite;
+        width: 70px;
+        height: 33px;
+        text-align: center;
+        display: none;
+    }
+
+    .com_80_33_670 {
+        position: absolute;
+        top: 50%;
+        left: 670px;
+        background-color: antiquewhite;
+        width: 80px;
+        height: 33px;
+        text-align: center;
+        display: none;
+    }
+
+    .center {
+        position: absolute;
+        margin: auto;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    /*.modal .modal-dialog {
+        width: 40%;
+    }*/
+
+    .uploadImg {
+        display: none;
+        width: 765px;
+        border: thin;
+        border-width: thin;
+        border-color: #ccc;
+        border-style: solid;
+        margin-bottom: 3px;
+        margin-top: 3px;
+    }
+</style>
+
+<input id="id_alb" class="id_alb" type="hidden" value="" />
+<input id="id_alb_big" class="id_alb_big" type="hidden" value="" />
+<input asp-for="heritageIds" type="hidden" value="" data-image_comment_list=@Model?.infoItemsStr />
+<div class="text-center" style="height:57px; font-size:larger;font-weight:600;border-bottom:solid;border-width:thin;border-color:#ccc;">
+    <div class="" style="width:40px;height:57px;float:left;position:relative;display:table;" data-toggle="tooltip" data-original-title="">
+        <div style="display:table-cell; vertical-align:middle;background-color: rgb(231, 236, 240);">
+            <div class="" style="max-width:40px;height:100%;margin:auto;position:relative;">
+                <img src=@Model.rootHerImg style="width:100%; height:100%;margin-left: 16px;" title=" Upload Img" class="get-her-upload-image center">
+            </div>
+        </div>
+    </div>
+    @*<img style="display:inline-block;float:left;" src=@Model.rootHerImg />*@
+    <span style="display: inline-block; vertical-align: middle;    margin-top: 11px;">
+        @Model?.rootHerName?.ToUpper() 
+    </span>
+    @*<img style="display:inline-block;float:left;" src="/Images/Heritage/empty.png" />
+        <span style="display: inline-block; vertical-align: middle;    margin-top: 11px;">
+            UPLOAD PERSONAL PHOTO
+        </span>*@
+    <div class="clearfix"></div>
+</div>
+<div class="row pl-2 pr-2 inserted___" style="position:relative;margin-top: 5px;margin-bottom: 5px;flex-direction: column;">
+    <div class="abo"></div>
+</div>
+<div id="comment-main-id" class="row" style="width:765px;height:100px; margin:auto; background-color:coral;position:relative;display:none;">
+    <div class="com1 com_15_33_750" style="top:0% !important;left:750px !important;"><i class="fa fa-pencil pointer fa_save_pencil"></i></div>
+    <div id="fa_comment_div" class="com1 com_50_33_700 fa_pencil_toggle" style="top:0% !important;left:700px !important;">
+        <i class="fa fa-save fa-2x fa_save_comment pointer"></i>
+    </div>
+    <textarea name="img_comment" id="img_comment" style="width:100%;"></textarea>
+</div>
+
+<form id="post-her-comment-image" method="post" enctype="multipart/form-data" asp-controller="Heritage" asp-action="PostHerImage" class="pl-3 pr-3">
+    <input asp-for="heritageIds" type="hidden" value="" />
+    <div id="cloud-main-id" class="uploadImg">
+        <div class="row  mt-2" style="margin:0px;">
+            <div class="col-md-3 ml-3" style="margin-left:0px !important;margin-bottom:0px;margin-top:5px;padding:0px;">
+                <label class="custom-file-upload" style="padding:0px;border-width:0px;padding-left: 3px;">
+                    <input type="file" name="files" class="upload-file-input" multiple />
+                    <i class="fa fa-cloud-upload fa-2x" title="File Upload"></i>
+                </label>
+            </div>
+            <div class="col-md-7">
+                <label style="padding-bottom:5px;" class="file-upload-filenames">
+                </label>
+            </div>
+            <div class="mt-2 col-md-2" style="margin-top:0px !important; padding:0px;">
+                <div class="col-md-10" style="float:right;">
+                    <button id="btn_submit" class="btn" type="submit" value="Upload" style="height:38px;padding:0px;display:inline-block;float:right;" title="Save Image"><i class="fa fa-save fa-2x fa_save_image"></i></button>
+                </div>
+            </div>
+            @*<div class="col-md-12">
+                    <input name="img_comment" id="img_comment" style="padding-bottom:5px;" class="form-control" placeholder="Comment" />
+                </div>*@
+        </div>
+    </div>
+</form>
+<div class="form-group text-right" style="border-top:solid;border-width:thin;border-color:#ccc;">
+    <div style="position:relative;float:left;margin-top:10px;margin-left: 15px;">
+        <i class="fa fa-comment fa-2x comment-main pointer" title="Write a Comment"></i>
+        <i class="fa fa-upload fa-2x cloud-main pointer" title="Attach a Photo or Video"></i>
+    </div>
+
+    <button type="button" class="btn btn-secondary mr-2 mt-1" data-dismiss="modal">Close</button>
+</div>
+<div class="form-group text-center" style="color:forestgreen;">
+    <span id="uploadLabel">@(Model?.message ?? "")</span>
+</div>
+@*</form>*@
+

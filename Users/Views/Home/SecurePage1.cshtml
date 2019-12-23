@@ -1,0 +1,151 @@
+﻿@model Models.ViewModels.SecurePageModel
+@{
+    Layout = "_LayoutSequre";
+
+    Models.ViewModels.SecurePageModel TagModel = (Models.ViewModels.SecurePageModel)Model;
+}
+
+<style>
+    .carousel {
+        width: 100%;
+    }
+
+    .slide-box {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @@media (min-width: 576px) and (max-width: 767.98px) {
+        .slide-box img {
+            -ms-flex: 0 0 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+        }
+    }
+
+    @@media (min-width: 768px) and (max-width: 991.98px) {
+        .slide-box img {
+            -ms-flex: 0 0 33.3333%;
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+        }
+    }
+
+    @@media (min-width: 992px) {
+        .slide-box img {
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+        }
+    }
+
+    .carousel-caption {
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: .5rem;
+    }
+    .newsfeed {
+        height: 500px;
+        overflow-y: scroll;
+        padding-right: 20px;
+    }
+</style>
+<div style="width:1180px; height:20px; background-color:mediumaquamarine; position:relative;float:left;">
+    <a asp-action="GetCaruselImages" asp-controller="Home" style="position:relative; display:inline-block;float:right;color:white;" class="get-carusel-images" data-toggle="modal">Carusel</a>
+</div>
+<div style="width:1180px; height:500px; background-color:blueviolet; position:relative;float:left;">
+    @await  Component.InvokeAsync(nameof(TableWithPagination))
+</div>
+<div style="width:1180px; height:160px; background-color:brown; position:relative;float:left;">
+    <div class="container">
+        <div class="row">
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="d-none d-lg-block">
+                            <div class="slide-box">
+                                <img src="https://picsum.photos/285/200/?image=0&random" alt="First slide">
+                                <img src="https://picsum.photos/285/200/?image=1&random" alt="First slide">
+                                <img src="https://picsum.photos/285/200/?image=2&random" alt="First slide">
+                                <img src="https://picsum.photos/285/200/?image=3&random" alt="First slide">
+                            </div>
+                        </div>
+                        <div class="d-none d-md-block d-lg-none">
+                            <div class="slide-box">
+                                <img src="https://picsum.photos/240/200/?image=0&random" alt="First slide">
+                                <img src="https://picsum.photos/240/200/?image=1&random" alt="First slide">
+                                <img src="https://picsum.photos/240/200/?image=2&random" alt="First slide">
+                            </div>
+                        </div>
+                        <div class="d-none d-sm-block d-md-none">
+                            <div class="slide-box">
+                                <img src="https://picsum.photos/270/200/?image=0&random" alt="First slide">
+                                <img src="https://picsum.photos/270/200/?image=1&random" alt="First slide">
+                            </div>
+                        </div>
+                        <div class="d-block d-sm-none">
+                            <img class="d-block w-100" src="https://picsum.photos/600/400/?image=0&random" alt="First slide">
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="d-none d-lg-block">
+                            <div class="slide-box">
+                                <img src="https://picsum.photos/285/200/?image=4&random" alt="Second slide">
+                                <img src="https://picsum.photos/285/200/?image=5&random" alt="Second slide">
+                                <img src="https://picsum.photos/285/200/?image=6&random" alt="Second slide">
+                                <img src="https://picsum.photos/285/200/?image=7&random" alt="Second slide">
+                            </div>
+                        </div>
+                        <div class="d-none d-md-block d-lg-none">
+                            <div class="slide-box">
+                                <img src="https://picsum.photos/240/200/?image=3&random" alt="Second slide">
+                                <img src="https://picsum.photos/240/200/?image=4&random" alt="Second slide">
+                                <img src="https://picsum.photos/240/200/?image=5&random" alt="Second slide">
+                            </div>
+                        </div>
+                        <div class="d-none d-sm-block d-md-none">
+                            <div class="slide-box">
+                                <img src="https://picsum.photos/270/200/?image=2&random" alt="Second slide">
+                                <img src="https://picsum.photos/270/200/?image=3&random" alt="Second slide">
+                            </div>
+                        </div>
+                        <div class="d-block d-sm-none">
+                            <img class="d-block w-100" src="https://picsum.photos/600/400/?image=1&random" alt="Second slide">
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="width:1180px; height:700px; background-color:azure; position:relative;float:left;">
+    <div style="width:350px; height:100%; background-color:cadetblue; position:relative;float:left;">
+        <div style="width:350px;height:500px; background-color:wheat; position:relative;float:left;">
+            <div class="newsfeed" style="">
+                <h4 class="news-widget-title">
+                    <span class="news-widget-title-inner"><a href="/2019/03/14">Լրահոս</a></span>
+                </h4>
+                <ul id="newsfeedList" class="news-custom-posts-widget clearfix" news-img-list="aaa" info="TagModel"></ul>
+            </div>
+        </div>
+        <div style="width:350px; height:100%; background-color:red;"></div>
+    </div>
+    <div style="width:830px; height:100%; background-color:white; position:relative;float:left;">
+        <div style="width:830px; height:300px; background-color:darksalmon; float:left;">c</div>
+        @*<div img-column2-list="aaassss" id="itemListLinks" style="width:830px; height:740px; background-color:lightskyblue; float:left;overflow-y:auto;">
+            </div>*@
+    </div>
+</div>
+<div style="width:1180px; height:50px; background-color:burlywood; position:relative;float:left;">d</div>

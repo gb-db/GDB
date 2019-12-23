@@ -1,0 +1,39 @@
+﻿@model NewsDataPaginationViewModels
+@{
+    Layout = "_LayoutSequre";
+
+    //Models.ViewModels.SecurePageModel TagModel = (Models.ViewModels.SecurePageModel)Model;
+}
+@section script{
+    <script src="~/Scripts/pagination.js"></script>
+}
+
+<style>
+    .active {
+        background-color: #20c997;
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+</style>
+
+<div style="width:1180px; height:500px; background-color:blueviolet; position:relative;float:left;">
+    <div class="row col-sm-12" id="requisition-div" name="requisition-div">
+        <table id="newsList" name="newsList" class='table  table-active table-hover' style="width: 100%;">
+            <thead>
+                <tr>
+                    @*class="success vertical-center"*@
+                    <th><a href="" onclick="sortBy('lname'); return false;">Name<span id="imagePatient" name="imagePatient" class="fa fa-sort-asc ml-2"></span></a></th>
+                    <th><a href="" onclick="sortBy('description'); return false;">Description<span id="imageDescription" name="imageDescription" class="fa fa-sort-asc ml-2"></span></a></th>
+                    <th><a href="" onclick="sortBy('path'); return false;">Path<span id="imagePath" name="imagePath" class=""></span></a></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <div class="row col-sm-12 text-right">
+        <ul class="pagination" id="pagination" name="pagination" style="margin: 0;"></ul>
+    </div>
+</div>

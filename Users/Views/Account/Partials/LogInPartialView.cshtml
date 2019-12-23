@@ -1,0 +1,68 @@
+﻿@model Models.ViewModels.LoginModel
+@{
+    Layout = null;
+}
+<style>
+    .padding_tb_1 {
+        padding-top: 1px !important;
+        padding-bottom: 1px !important;
+    }
+
+    .padding_1 {
+        padding: 1px !important;
+    }
+
+    .margin_b_1 {
+        margin-bottom: 1px !important;
+    }
+
+    .margin_lr_4 {
+        margin-left: 4px !important;
+        margin-right: 4px !important;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+
+    .rem_ul_margin_b_1 ul {
+        margin-bottom: 1px !important;
+    }
+    .height_24 {
+    height:24px !important;
+    }
+</style>
+<div class="bg-primary m-1 p-1 text-white padding_tb_1" style="position:relative;">
+    @if (User.Identity.IsAuthenticated)
+    {
+        <span style="position:relative;">
+            <a style="color:white;" asp-action="Logout" asp-controller="Account">Sign Out</a>
+        </span>
+    }
+    else
+    {
+        <span>Log in</span>
+    }
+    <a asp-action="Create" asp-controller="Admin" style="position:relative; display:inline-block;float:right;color:white;" class="get-create-user">New User</a>
+</div>
+@*<div class="text-danger rem_ul_margin_b_1" asp-validation-summary="All"></div>*@
+<form asp-action="Login" asp-controller="Account" method="post">
+    <input type="hidden" name="returnUrl" value="@ViewBag.returnUrl" />
+    <div class="row margin_b_1 margin_lr_4">
+        <div class=" col-11 padding_1"><input asp-for="Email" placeholder="Email" class="form-control padding_1 height_24" /></div>
+        <div class="col-1 padding_1"><span asp-validation-for="Email" class="text-danger padding_1"></span></div>
+    </div>
+    <div class="row margin_b_1 margin_lr_4">
+        <div class=" col-11 padding_1"><input asp-for="Password" placeholder="Password" class="form-control padding_1 height_24" /></div>
+        <div class="col-1 padding_1"><span asp-validation-for="Password" class="text-danger padding_1"></span></div>
+    </div>
+    <div class="form-group form-check margin_b_1 margin_lr_4">
+        <label class="form-check-label height_24">
+            <input asp-for="RememberMe" class="form-check-input padding_tb_1"> Remember me
+        </label>
+    </div>
+    <button class="btn btn-primary padding_tb_1 margin_lr_4 pointer" type="submit">Log In</button>
+    <a class="btn btn-info padding_tb_1 margin_lr_4" asp-action="GoogleLogin" asp-route-returnUrl="@ViewBag.returnUrl">
+        Log In With Google
+    </a>
+</form>

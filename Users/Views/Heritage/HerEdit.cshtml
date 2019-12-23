@@ -1,0 +1,206 @@
+﻿@model HeritageViewModel
+@{
+    Layout = null;
+}
+@*<link href="~/lib/jquery-ui/themes/smoothness/jquery-ui.css" rel="stylesheet" />*@
+@*<script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-ui/jquery-ui.js"></script>*@
+@*<script src="~/Scripts/UploadImage.js"></script>*@
+@*<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />*@
+<style>
+    input[type="file"] {
+        display: none;
+    }
+
+    .custom-file-upload {
+        border: 1px solid #ccc;
+        display: inline-block;
+        padding: 6px 12px;
+        cursor: pointer;
+    }
+
+    .ui-autocomplete-input {
+        /*z-index:1511;*/
+    }
+
+    .ui-autocomplete {
+        /*position: fixed;*/
+        z-index: 1651 !important;
+    }
+
+    .spinner {
+        background: url('/Images/ajax-txtBox-loader.gif') no-repeat right center;
+    }
+
+    .a_new {
+        display: inline-block;
+        margin-left: 5px;
+        color: black;
+        font-size: x-small;
+        font-style: italic;
+    }
+
+    .pointer {
+        cursor: pointer;
+    }
+
+    .ml_2 {
+        margin-left: 2px;
+    }
+
+    .input_record {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<form id="get-edit-heritage" method="post" enctype="multipart/form-data" asp-controller="Heritage" asp-action="HerEdit" class="pl-3 pr-3">
+    <p class="text-center" style="font-size:larger;font-weight:600;border-bottom:solid;border-width:thin;border-color:#ccc;">UPDATE PERSONAL DATA</p>
+    <input asp-for="data_information" name="data_information" type="hidden" data-her_update_data />
+    <div class="container-fluid" style="border:solid;border-width:thin;border-color:#ccc;">
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="lName"></label>
+                    <input asp-for="lName" class="form-control" autocomplete="off" />
+                    <input asp-for="user_id" name="user_id" type="hidden" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="fName"></label>
+                    <input asp-for="fName" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="DOB"></label>
+                    <input asp-for="DOB_str" class="form-control dateClass" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="PWD"></label>
+                    <input asp-for="PWD_str" class="form-control dateClass" autocomplete="off" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="country"></label><a class="a_new a_new_id" href="#">( Create New )</a>
+                    <input asp-for="country" class="form-control auto_complates " autocomplete="off" />
+                    <input asp-for="countryId" type="hidden" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="province"></label><a class="a_new a_new_id" href="#">( Create New )</a>
+                    <input asp-for="province" class="form-control auto_complates" autocomplete="off" />
+                    <input asp-for="provinceId" type="hidden" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="city"></label><a class="a_new a_new_id" href="#">( Create New )</a>
+                    <input asp-for="city" class="form-control auto_complates" autocomplete="off" />
+                    <input asp-for="cityId" type="hidden" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="church"></label><a class="a_new a_new_id" href="#">( Create New )</a>
+                    <input asp-for="church" class="form-control auto_complates" autocomplete="off" />
+                    <input asp-for="churchId" type="hidden" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="countryBP"></label>@*<a class="a_new" href="#">( Create New )</a>*@
+                    <input asp-for="countryBP" class="form-control auto_complates " autocomplete="off" />
+                    <input asp-for="countryBPId" type="hidden" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="provinceBP"></label>@*<a class="a_new" href="#">( Create New )</a>*@
+                    <input asp-for="provinceBP" class="form-control auto_complates" autocomplete="off" />
+                    <input asp-for="provinceBPId" type="hidden" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="cityBP"></label>@*<a class="a_new" href="#">( Create New )</a>*@
+                    <input asp-for="cityBP" class="form-control auto_complates" autocomplete="off" />
+                    <input asp-for="cityBPId" type="hidden" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                @*<div class="form-group">
+                    <label asp-for="church"></label><a class="a_new a_new_id" href="#">( Create New )</a>
+                    <input asp-for="church" class="form-control auto_complates" autocomplete="off" />
+                    <input asp-for="churchId" type="hidden" />
+                </div>*@
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="fNameParentM"></label>
+                    <input asp-for="fNameParentM" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="lNameParentM"></label>
+                    <input asp-for="lNameParentM" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-6">
+                <div class="form-group" style="">
+                    <label asp-for="fNameParentF"></label>
+                    <input asp-for="fNameParentF" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-group">
+                    <label asp-for="lNameParentF"></label>
+                    <input asp-for="lNameParentF" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3 col-md-12">
+                <div class="form-group" style="">
+                    <label asp-for="information"></label>
+                    <input asp-for="information" class="form-control" autocomplete="off" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group text-right" style="border-top:solid;border-width:thin;border-color:#ccc;">
+        <input type="submit" value="Save" class="btn btn-secondary mr-2 mt-1" />
+        <button type="button" class="btn btn-secondary mr-2 mt-1" data-dismiss="modal">Close</button>
+    </div>
+    <div class="form-group text-center" style="color:forestgreen;">
+        @*@{ Model.message = Model.message??""}*@
+        <span id="herEditLabel">@(Model?.message ?? "")</span>
+    </div>
+
+    <script>
+        $(function () {
+            attachAutocomplate();
+        });
+    </script>
+</form>
+

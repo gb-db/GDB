@@ -1,0 +1,107 @@
+
+Log Entry : 5:30:34 PM August 11, 2019
+  :
+  :InsertNewCountry  ### InsertNewCountry(string name)
+-------------------------------
+
+Log Entry : 12:30:53 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 9:29:30 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 9:30:39 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 10:37:05 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 10:54:20 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 10:56:30 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 11:01:47 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 11:17:13 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 11:33:32 AM August 14, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)The INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 9:46:40 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryBPId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 9:48:37 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Country_CountryBPId". The conflict occurred in database "GDB", table "dbo.Country", column 'CountryId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 9:48:53 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_City_cityBPId". The conflict occurred in database "GDB", table "dbo.City", column 'cityId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 9:59:03 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe INSERT statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_City_cityBPId". The conflict occurred in database "GDB", table "dbo.City", column 'cityId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 11:00:37 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe UPDATE statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_City_cityBPId". The conflict occurred in database "GDB", table "dbo.City", column 'cityId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 11:37:26 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe UPDATE statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Church_churchId". The conflict occurred in database "GDB", table "dbo.Church", column 'churchId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 11:37:30 PM August 23, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe UPDATE statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Church_churchId". The conflict occurred in database "GDB", table "dbo.Church", column 'churchId'.
+The statement has been terminated.
+-------------------------------
+
+Log Entry : 6:55:49 PM August 25, 2019
+  :
+  :InsertHerInformation ### An error occurred while updating the entries. See the inner exception for details. ### RetSimple InsertHerInformation(HeritageViewModel heritageViewModel)    elseThe UPDATE statement conflicted with the FOREIGN KEY constraint "FK_HeratigeDatas_Church_churchId". The conflict occurred in database "GDB", table "dbo.Church", column 'churchId'.
+The statement has been terminated.
+-------------------------------
