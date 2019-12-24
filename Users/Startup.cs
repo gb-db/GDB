@@ -96,28 +96,19 @@ namespace Users
 
         public void Configure(IApplicationBuilder app)
         {
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetService<AppIdentityDbContext>();
+                context.Database.Migrate();
+            }
+
+
             app.UseStatusCodePages();
             app.UseDeveloperExceptionPage();
             app.UseStaticFiles();
             app.UseAuthentication();
             app.UseMvcWithDefaultRoute();
 
-            //try
-            //{
-            //    AppIdentityDbContext.CreateAdminAccount(app.ApplicationServices, Configuration).Wait();
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
-            //    string methodName = st.GetFrame(0).GetMethod().Name;
-
-            //    string Msg = methodName + " ### " + ex.Message + " ### public void Configure(IApplicationBuilder app)";
-            //    if (ex.InnerException != null)
-            //        Msg += ex.InnerException.Message;
-
-            //    Helper helper = new Helper(env);
-            //    helper.WriteToLog(Msg);
-            //}
         }
     }
 }
